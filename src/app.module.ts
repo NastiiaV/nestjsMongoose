@@ -15,7 +15,7 @@ import { ConfigModule } from '@nestjs/config';
 @Module({
   imports: [RoutecModule,
     ConfigModule.forRoot({ isGlobal: true }),
-    MongooseModule.forRoot( process.env.MONGO_DB_URI, { useNewUrlParser: true }),
+    MongooseModule.forRoot( process.env.MONGO_DB_URI || 'mongodb+srv://admin:admin123@cluster0.ukfb4.mongodb.net/nestRoute?retryWrites=true', { useNewUrlParser: true }),
     HealthModule, TerminusModule],
   controllers: [AppController, HealthController],
   providers: [AppService],
