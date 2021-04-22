@@ -7,8 +7,7 @@ import { HealthController } from './health.controller';
 @Module({
     imports: [
         TerminusModule,
-        MongooseModule.forRoot(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.ukfb4.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`,
-        { useNewUrlParser: true }),
+        MongooseModule.forRoot(process.env.MONGO_DB_URI , { useNewUrlParser: true }),
       ],
       controllers: [HealthController],
 })
